@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>searchTeamDB</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item (click)="openIonCard()" *ngFor='let t of team'>
+      <h4>{{t.strTeam}}</h4>
+      <p>{{t.strLeague}}</p>
+
+      <!-- <ion-img height="200" width="200" src={{t.strTeamBadge}}></ion-img> -->
+     
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Arsenal FC</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            Keep close to Nature's heart... and break clear away, once in awhile,
+            and climb a mountain or spend a week in the woods. Wash your spirit clean.
+          </ion-card-content>
+
+        </ion-card>
+      
+
+    </ion-item>
+  </ion-list>
+
+
+
+
+
+</ion-content>
