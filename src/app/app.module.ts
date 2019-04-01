@@ -13,6 +13,7 @@ import { SettingsPage } from '../pages/settings/settings';
 import { MatchesPage } from '../pages/matches/matches';
 import {SearchTeamDbPage} from '../pages/search-team-db/search-team-db';
 import { SearchProvider } from '../providers/search/search';
+import {IonicStorageModule} from '@ionic/storage';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { SearchProvider } from '../providers/search/search';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule//
+    IonicStorageModule.forRoot(),
+    HttpClientModule
 
   ],
   bootstrap: [IonicApp],

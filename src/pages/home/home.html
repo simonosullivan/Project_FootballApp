@@ -7,9 +7,10 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-searchbar value="ion-searchbar" animated placeholder="Search team"></ion-searchbar>
+  <ion-searchbar search="ion-searchbar" animated [(ngModel)]="searchQuery" (search)="searchTeam()" 
+  placeholder="Search team" ></ion-searchbar>
   
-  <button ion-button (click)="searchTeam()" >Search</button>
+  <!-- <button ion-button (click)="searchTeam()" >Search</button> -->
  <p>Search a team to get latest results, upcoming fixtures and league table</p>
 
  

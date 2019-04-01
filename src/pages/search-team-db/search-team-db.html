@@ -7,30 +7,37 @@
 <ion-content padding>
   <ion-list>
     <ion-item (click)="openIonCard()" *ngFor='let t of team'>
-      <h4>{{t.strTeam}}</h4>
+        <ion-card-title>{{t.strTeam}}</ion-card-title>
       <p>{{t.strLeague}}</p>
 
-      <!-- <ion-img height="200" width="200" src={{t.strTeamBadge}}></ion-img> -->
-     
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Arsenal FC</ion-card-title>
-          </ion-card-header>
-
-          <ion-card-content>
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
-            hhhh.
-          </ion-card-content>
-
-        </ion-card>
+      <!-- <ion-img height="200" width="200" src="{{t.strTeamBadge}}"></ion-img> -->
       
-
+     <div *ngIf="hide">
+       <br>
+      <h5><b>Year Formed :</b> {{t.intFormedYear}}</h5><br>
+      <h5><b>Stadium name :</b> {{t.strStadium}}</h5><br>
+      <h5><b>Capacity :</b> {{t.intStadiumCapacity}}</h5><br>
+      <h5><b>Stadium location :</b> {{t.strStadiumLocation}}</h5> 
+      <br>
+      <h4 text-wrap>
+        {{t.strDescriptionEN}}
+      </h4>
+      </div>
     </ion-item>
   </ion-list>
-
-
-
-
-
 </ion-content>
+
+
+<!-- <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{t.strTeam}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <h5><b>Year Formed :</b> {{t.intFormedYear}}</h5><br>
+      <h5><b>Stadium name :</b> {{t.strStadium}}</h5><br>
+      <h5><b>Capacity :</b> {{t.intStadiumCapacity}}</h5><br>
+      <h5><b>Stadium location :</b> {{t.strStadiumLocation}}</h5> 
+      <p>{{t.strDescriptionEN}}</p>
+    </ion-card-content>
+  </ion-card> -->
