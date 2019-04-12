@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {SearchProvider} from '../../providers/search/search';
-import {Storage} from '@ionic/storage';
+import { HomePage } from '../home/home';
+//import {Storage} from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -14,25 +15,30 @@ export class SearchTeamDbPage {
   cnt:number = 0;
   teamName:string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public search:SearchProvider, public storage:Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public search:SearchProvider) {
     console.log("searchTeamDB");
   }
 
   
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     console.log("hello searchTeamDB");
-    this.storage.get("searchTeam").then((val)=>{
-      this.teamName = val;
-    })
+    // this.storage.get("searchTeam").then((val)=>{
+    //   this.teamName = val;
+    //   console.log(this.teamName); 
+    // })
+    
+    this.openSearch();
+  }
 
-    this.search.getSearch(this.teamName).subscribe((data)=>{
+  openSearch(){
+  //this.storage.ready();
+    this.search.getSearch().subscribe((data)=>{
       this.team = data.teams;
     })
   }
 
-
-
+  
   openIonCard(){
     this.cnt++;
     

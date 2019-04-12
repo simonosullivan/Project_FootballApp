@@ -14,14 +14,14 @@ export class HomePage {
 
   }
 
-  ionViewDidLoad(){
-    
+  ionViewWillEnter(){
+    this.storage.clear();
   }
 
   searchTeam(){
     //console.log(this.searchQuery); //get value of search bar to search for team
+    
     this.storage.set("searchTeam" ,this.searchQuery);
-    //console.log(this.searchQuery);
     this.navCtrl.push(SearchTeamDbPage);
   }
 }

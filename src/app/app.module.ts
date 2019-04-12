@@ -14,6 +14,8 @@ import { MatchesPage } from '../pages/matches/matches';
 import {SearchTeamDbPage} from '../pages/search-team-db/search-team-db';
 import { SearchProvider } from '../providers/search/search';
 import {IonicStorageModule} from '@ionic/storage';
+import { FixturesProvider } from '../providers/fixtures/fixtures';
+
 
 
 @NgModule({
@@ -30,7 +32,6 @@ import {IonicStorageModule} from '@ionic/storage';
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     HttpClientModule
-
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,7 +46,8 @@ import {IonicStorageModule} from '@ionic/storage';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SearchProvider
+    SearchProvider,
+    FixturesProvider
   ]
 })
 export class AppModule {}
