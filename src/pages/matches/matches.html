@@ -11,9 +11,45 @@
 </ion-item>
 
 <ion-list>
-  <ion-item *ngFor='let f of fixtures'>
-    <h6>{{f.strEvent}}</h6>
+    
+  <ion-item (click)="openGame()" *ngFor='let f of fixtures'>
+    <h6>{{f.strHomeTeam}} &nbsp;{{f.intHomeScore}} - {{f.intAwayScore}} &nbsp; {{f.strAwayTeam}} </h6>
     <p>{{f.strLeague}}</p>
+
+    <div *ngIf="hide">
+        <br>
+       <h6 text-wrap>
+         <b>Goals Home:</b> {{f.strHomeGoalDetails}}
+        </h6><br>
+        <h6 text-wrap>
+            <b>Goals Away:</b> {{f.strAwayGoalDetails}} 
+        </h6><br>
+
+        <h2>Line Up</h2><br>
+        <h6><b>Home Team</b></h6>
+        <p text-wrap><b>GK: </b>{{f.strHomeLineupGoalkeeper}}</p><br>
+        <p text-wrap><b>DEF: </b>{{f.strHomeLineupDefense}}</p><br>
+        <p text-wrap><b>MID: </b>{{f.strHomeLineupMidfield}}</p><br>
+        <p text-wrap><b>FWD: </b>{{f.strHomeLineupForward}}</p><br>
+        <br>
+        <h6><b>Substitutes</b></h6>
+        <p text-wrap>{{f.strHomeLineupSubstitutes}}</p><br>
+
+        <h6><b>Away Team</b></h6>
+        <p text-wrap><b>GK: </b>{{f.strAwayLineupGoalkeeper}}</p><br>
+        <p text-wrap><b>DEF: </b>{{f.strAwayLineupDefense}}</p><br>
+        <p text-wrap><b>MID: </b>{{f.strAwayLineupMidfield}}</p><br>
+        <p text-wrap><b>FWD: </b>{{f.strAwayLineupForward}}</p><br>
+        <h6><b>Substitutes</b></h6>
+        <p text-wrap>{{f.strAwayLineupSubstitutes}}</p><br>
+
+       <h6><b>Home Red Cards :</b> {{f.strHomeRedCards}}</h6><br>
+       <h6><b>Away Red Cards :</b> {{f.strAwayRedCards}}</h6><br>
+       <h6><b>Home Yellow Cards :</b> {{f.strHomeYellowCards}}</h6><br>
+       <h6><b>Away Yellow Cards :</b> {{f.strAwayYellowCards}}</h6><br>
+
+     
+       </div>
   </ion-item>
 </ion-list>
 </ion-content>

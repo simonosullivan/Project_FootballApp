@@ -17,13 +17,17 @@ import {FixturesProvider} from '../../providers/fixtures/fixtures';
 })
 export class MatchesPage {
   fixtures:any=[];
-  fixDate:string="2019-04-08";
+  fixDate:string="2019-04-23";
+  show:boolean = true;
+  cnt: number =1;
+  hide: boolean = false;
+  id:number=1;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public fix: FixturesProvider) {
-    console.log(this.fixDate);
+    
   }
 
   ionChange(){
-    console.log(this.fixDate);
     this.fix.getFixtures(this.fixDate).subscribe((data)=>{
       this.fixtures = data.events;
     })
@@ -34,6 +38,17 @@ export class MatchesPage {
     this.fix.getFixtures(this.fixDate).subscribe((data)=>{
       this.fixtures = data.events;
     })
+  }
+
+  openGame(){
+    this.cnt++;
+    // toggle opening of Ion Cards
+    if(this.cnt % 2 == 1){
+      this.hide = true;
+    }
+    else if(this.cnt % 2 == 0){
+      this.hide = false;
+    }
   }
 
 }

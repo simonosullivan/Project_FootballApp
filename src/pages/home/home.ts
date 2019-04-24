@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings';
 import {SearchTeamDbPage} from '../search-team-db/search-team-db';
 import {Storage} from '@ionic/storage';
+import {SearchProvider} from '../../providers/search/search';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -10,18 +12,25 @@ import {Storage} from '@ionic/storage';
 export class HomePage {
   search:string;
   searchQuery:string;
-  constructor(public navCtrl: NavController, public storage:Storage) {
+  favTeam =[];
+  teamId:number;
+  constructor(public navCtrl: NavController, public storage:Storage, public find:SearchProvider) {
 
   }
 
   ionViewWillEnter(){
-    this.storage.clear();
+
+    this.find.favTeamSearch().subscribe((data)=>{
+      this.favTeam = data.teams;
+    })
+
   }
 
   searchTeam(){
-    //console.log(this.searchQuery); //get value of search bar to search for team
     
     this.storage.set("searchTeam" ,this.searchQuery);
     this.navCtrl.push(SearchTeamDbPage);
   }
+
+  
 }

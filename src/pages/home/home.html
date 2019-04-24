@@ -13,7 +13,9 @@
   <!-- <button ion-button (click)="searchTeam()" >Search</button> -->
  <p>Search a team to get latest results, upcoming fixtures and league table</p>
 
- 
+<ion-label *ngFor='let ft of favTeam'>
+    <h1>{{ft.strTeam}}</h1>
+</ion-label>
    
 
 </ion-content>
